@@ -28,7 +28,7 @@ test('versus row, stamina with final round, and each agent with its duty', async
   on('clock.now', () => ({ value: Date.parse('2026-10-07T20:00:00Z') }) as never)
 
   for (const surface of ['desktop', 'terminal'] as const) {
-    const ui = await $.ui.mount({ plugin: 'tekken-hud', surface, component: 'AbovePrompt', props: PROPS })
+    const ui = await $.ui.mount({ plugin: 'fight-hud', surface, component: 'AbovePrompt', props: PROPS })
 
     if (surface === 'desktop') {
       const src = String((await ui.find({ type: 'Svg' }))?.props.source)
@@ -74,7 +74,7 @@ test('a description with a newline stays one terminal row', async ($, on) => {
   on('session.model', () => ({ value: 'claude-opus-5-5' }))
   on('session.usage', () => ({ value: USAGE }) as never)
   on('clock.now', () => ({ value: Date.parse('2026-10-07T20:00:00Z') }) as never)
-  const ui = await $.ui.mount({ plugin: 'tekken-hud', surface: 'terminal', component: 'AbovePrompt', props: PROPS })
+  const ui = await $.ui.mount({ plugin: 'fight-hud', surface: 'terminal', component: 'AbovePrompt', props: PROPS })
   const text = String((await ui.find({ key: 'run-a1' }))?.text)
   expect(text).toContain('scan second line')
   expect(/[\n\u001b]/.test(text)).toBe(false)
@@ -144,19 +144,19 @@ test('a workflow shows its name, phase pips and running agents', async ($, on) =
   on('agent.list', () => ({ value: [] }) as never)
   on('session.model', () => ({ value: 'claude-opus-5-5' }))
   on('session.usage', () => ({ value: USAGE }) as never)
-  on('tool.call', () => ({ result: { status: 'async_launched', taskId: 't', runId: 'wf_1', workflowName: 'tekken-hud-review' } }) as never)
+  on('tool.call', () => ({ result: { status: 'async_launched', taskId: 't', runId: 'wf_1', workflowName: 'fight-hud-review' } }) as never)
   let n = 0
   on('agent.spawn', () => ({ model: 'claude-opus-5-5', agentId: `a${++n}` }))
 
-  const script = "export const meta = { name: 'tekken-hud-review', description: 'x', phases: [{ title: 'Review' }, { title: 'Verify' }] }"
+  const script = "export const meta = { name: 'fight-hud-review', description: 'x', phases: [{ title: 'Review' }, { title: 'Verify' }] }"
   await $.tool.call({ tool: 'Workflow', script } as never)
   for (const label of ['review:runtime', 'review:repo']) {
     await $.agent.spawn({ prompt: 'p', description: label, workflow: { runId: 'wf_1', agentIndex: n + 1 } } as never)
   }
 
-  const ui = await $.ui.mount({ plugin: 'tekken-hud', surface: 'desktop', component: 'AbovePrompt', props: PROPS })
+  const ui = await $.ui.mount({ plugin: 'fight-hud', surface: 'desktop', component: 'AbovePrompt', props: PROPS })
   const src = String((await ui.find({ type: 'Svg' }))?.props.source)
-  for (const bit of ['TEKKEN-HUD-REVIEW', '2 AGENTS', 'REVIEW', 'VERIFY', 'REVIEW:RUNTIME', 'REVIEW:REPO']) expect(src).toContain(bit)
+  for (const bit of ['FIGHT-HUD-REVIEW', '2 AGENTS', 'REVIEW', 'VERIFY', 'REVIEW:RUNTIME', 'REVIEW:REPO']) expect(src).toContain(bit)
   await ui.unmount()
 })
 

@@ -83,7 +83,7 @@ async function boot($: any, on: On, wfLabels: string[] = [], now = 1_000_000) {
         ...(a.name !== undefined && { name: a.name }),
       }))
       const props = { hasSurvey: false, isWorking: cfg.isWorking ?? false, maxRows: 8, bodyColumns } as never
-      return $.ui.mount({ plugin: 'tekken-hud', surface, component: 'AbovePrompt', props })
+      return $.ui.mount({ plugin: 'fight-hud', surface, component: 'AbovePrompt', props })
     },
   }
 }

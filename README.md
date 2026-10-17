@@ -1,10 +1,10 @@
-# Tekken HUD for Claude Code
+# Fight HUD for Claude Code
 
 Your Claude Code session, as a fighting game. Context window, rate limits, daily spend, tech debt and your running subagents become health bars, stamina, nameplates and a K.O. toast, drawn above the prompt.
 
-https://github.com/user-attachments/assets/66344f22-7c74-44cb-829c-7b959ea552c1
+[![Watch the launch video](media/launch-poster.png)](media/launch.mp4)
 
-![Tekken HUD](media/hero.png)
+![Fight HUD](media/hero.png)
 
 ## What you're looking at
 
@@ -32,7 +32,7 @@ https://github.com/user-attachments/assets/66344f22-7c74-44cb-829c-7b959ea552c1
 
 Live in the desktop app, while three agents verified this release:
 
-![Tekken HUD live in Claude Code](media/live.png)
+![Fight HUD live in Claude Code](media/live.png)
 
 **K.O.** pops as a toast when the 5-hour limit hits 100%, the moment P2's bar runs out. (The big K.O. lettering is from the launch video; in the app you get the toast.)
 
@@ -45,23 +45,25 @@ One line sets up the prerequisites (Node and a pinned ccusage, via Homebrew on m
 On macOS and Linux:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/dpdev69/claude-tekken-hud/main/setup.sh | sh
+curl -fsSL https://raw.githubusercontent.com/dpdev69/claude-fight-hud/main/setup.sh | sh
 ```
 
 On Windows, in PowerShell:
 
 ```
-irm https://raw.githubusercontent.com/dpdev69/claude-tekken-hud/main/setup.ps1 | iex
+irm https://raw.githubusercontent.com/dpdev69/claude-fight-hud/main/setup.ps1 | iex
 ```
 
 Then in Claude Code, one command at a time:
 
 ```
-/plugin marketplace add dpdev69/claude-tekken-hud
-/plugin install tekken-hud@claude-tekken-hud
+/plugin marketplace add dpdev69/claude-fight-hud
+/plugin install fight-hud@claude-fight-hud
 ```
 
 and `/reload-plugins` to load it into an open session.
+
+It was called Tekken HUD before 2.0.0. If you have that installed, remove it first with `/plugin uninstall tekken-hud@claude-tekken-hud`.
 
 ## Requirements
 
@@ -97,4 +99,4 @@ npm run video
 ffmpeg -ss 24.5 -t 4 -i media/launch.mp4 -vf "crop=1920:800:0:240,fps=15,scale=1100:-1:flags=lanczos,split[a][b];[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4" -loop 0 media/ko.gif
 ```
 
-MIT.
+MIT. Made by [Basalt](https://hellobasalt.dev) · [X](https://x.com/hellobasalt) · [YouTube](https://www.youtube.com/@hellobasalt)

@@ -1,6 +1,6 @@
-# Tekken HUD prerequisites, in one go (Windows PowerShell 5.1 or PowerShell 7):
+# Fight HUD prerequisites, in one go (Windows PowerShell 5.1 or PowerShell 7):
 #
-#   irm https://raw.githubusercontent.com/dpdev69/claude-tekken-hud/main/setup.ps1 | iex
+#   irm https://raw.githubusercontent.com/dpdev69/claude-fight-hud/main/setup.ps1 | iex
 #   .\setup.ps1 -Check      # report only, install nothing
 #
 # `irm | iex` cannot take parameters, so for -Check download the file first.
@@ -36,7 +36,7 @@ function Update-SessionPath {
   $env:Path = (@($machine, $user) | Where-Object { $_ }) -join ';'
 }
 
-say "TEKKEN HUD $DOT checking your corner"
+say "FIGHT HUD $DOT checking your corner"
 
 if (Test-Cmd git) {
   $gv = ''
@@ -103,6 +103,6 @@ if (Test-Cmd node) {
 if ($script:Missing) { say "Fix the $CROSS items above"; $global:LASTEXITCODE = 1; return }
 
 say 'Ready. In Claude Code:'
-Write-Host '  /plugin marketplace add dpdev69/claude-tekken-hud'
-Write-Host '  /plugin install tekken-hud@claude-tekken-hud'
+Write-Host '  /plugin marketplace add dpdev69/claude-fight-hud'
+Write-Host '  /plugin install fight-hud@claude-fight-hud'
 Write-Host ''

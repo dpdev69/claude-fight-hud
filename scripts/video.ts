@@ -48,7 +48,7 @@ function hudAt(t: number): Panel {
   ].filter(c => c.cost > 0.01)
 
   return {
-    name: 'tekken-hud',
+    name: 'fight-hud',
     ctx,
     five,
     resets: five >= 100 ? '' : `${Math.floor(mins / 60)}:${String(mins % 60).padStart(2, '0')}`,
@@ -133,7 +133,7 @@ body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#1f1e1d;font
 #end .url{margin-top:36px;font-size:32px;color:#9a9a9a;font-weight:600;letter-spacing:.04em}
 #end{background:#1f1e1d}
 </style>
-<div class="layer" id="title"><div class="brand">TEKKEN HUD</div><div class="sub">for Claude Code</div></div>
+<div class="layer" id="title"><div class="brand">FIGHT HUD</div><div class="sub">for Claude Code</div></div>
 <div id="stage">
   <div id="caption"></div>
   <div id="hudwrap"><img id="hud"><svg id="pulse" xmlns="http://www.w3.org/2000/svg">
@@ -144,9 +144,10 @@ body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#1f1e1d;font
   <div id="prompt">Reply to Claude…</div>
 </div>
 <div id="toast">💥 K.O.! 5-hour limit reached</div>
-<div class="layer" id="end"><div class="brand">TEKKEN HUD</div><div class="sub">for Claude Code</div>
-  <div class="cmd">/plugin marketplace add dpdev69/claude-tekken-hud<br>/plugin install tekken-hud@claude-tekken-hud</div>
-  <div class="url">github.com/dpdev69/claude-tekken-hud</div></div>
+<div class="layer" id="end"><div class="brand">FIGHT HUD</div><div class="sub">for Claude Code</div>
+  <div class="cmd">/plugin marketplace add dpdev69/claude-fight-hud<br>/plugin install fight-hud@claude-fight-hud</div>
+  <div class="url">github.com/dpdev69/claude-fight-hud</div>
+  <div class="url">by Basalt · hellobasalt.dev</div></div>
 <div class="layer"><div id="big"></div></div>
 <div id="flash"></div>
 <script>
@@ -201,7 +202,7 @@ const hudFile = (t: number) => {
 const frames = Array.from({ length: Math.round(END * FPS) }, (_, i) => frameAt(i / FPS, hudFile))
 const posterFrame: Frame = {
   ...frameAt(24.6, hudFile),
-  caption: { html: '<span class="brand" style="font-size:84px">TEKKEN HUD</span>&nbsp;&nbsp;<span class="sub" style="font-size:44px">for Claude Code</span>', o: 1 },
+  caption: { html: '<span class="brand" style="font-size:84px">FIGHT HUD</span>&nbsp;&nbsp;<span class="sub" style="font-size:44px">for Claude Code</span>', o: 1 },
   toast: 0,
 }
 await renderFrames(states, hudDir)
