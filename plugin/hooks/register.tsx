@@ -6,16 +6,16 @@ import type { AgentModels, ModelCost, WfAgents, WfRuns } from '../types'
 import { cell, clamp, columns, countdown, cut, elapsed, heat, panel, short, span, textBar, tint } from './panel'
 import type { Agent, Run } from './panel'
 
-const models = atom({ plugin: 'tekken-hud', key: 'models' } as const, {} as AgentModels)
-const tick = atom({ plugin: 'tekken-hud', key: 'tick' } as const, 0)
-const debt = atom({ plugin: 'tekken-hud', key: 'debt' } as const, '?')
-const project = atom({ plugin: 'tekken-hud', key: 'project' } as const, '')
-const root = atom({ plugin: 'tekken-hud', key: 'root' } as const, '')
-const mix = atom({ plugin: 'tekken-hud', key: 'mix' } as const, [] as ModelCost[])
-const runs = atom({ plugin: 'tekken-hud', key: 'runs' } as const, {} as WfRuns)
-const wf = atom({ plugin: 'tekken-hud', key: 'wf' } as const, {} as WfAgents)
+const models = atom({ plugin: 'fight-hud', key: 'models' } as const, {} as AgentModels)
+const tick = atom({ plugin: 'fight-hud', key: 'tick' } as const, 0)
+const debt = atom({ plugin: 'fight-hud', key: 'debt' } as const, '?')
+const project = atom({ plugin: 'fight-hud', key: 'project' } as const, '')
+const root = atom({ plugin: 'fight-hud', key: 'root' } as const, '')
+const mix = atom({ plugin: 'fight-hud', key: 'mix' } as const, [] as ModelCost[])
+const runs = atom({ plugin: 'fight-hud', key: 'runs' } as const, {} as WfRuns)
+const wf = atom({ plugin: 'fight-hud', key: 'wf' } as const, {} as WfAgents)
 // Kept in state so a reload doesn't toast again for a limit already crossed.
-const alerted = atom({ plugin: 'tekken-hud', key: 'alerted' } as const, { ko: false, final: false })
+const alerted = atom({ plugin: 'fight-hud', key: 'alerted' } as const, { ko: false, final: false })
 
 // What the debt counts: a ponytail marker after a #, // or /* comment opener.
 const PATTERN = '(#|//|/[*]) ?ponytail:'

@@ -1,16 +1,16 @@
 {
   "$schema": "https://code.claude.com/schemas/marketplace.json",
-  "name": "claude-tekken-hud",
-  "description": "Tekken-style fight HUD for Claude Code",
-  "owner": { "name": "dpdev69" },
+  "name": "claude-fight-hud",
+  "description": "Fighting-game HUD for Claude Code",
+  "owner": { "name": "Basalt" },
   "plugins": [
     {
-      "name": "tekken-hud",
+      "name": "fight-hud",
       "source": "./plugin",
-      "description": "Tekken-style fight HUD above the Claude Code prompt",
-      "version": "1.4.0",
+      "description": "Fighting-game HUD above the Claude Code prompt",
+      "version": "2.0.0",
       "license": "MIT",
-      "homepage": "https://github.com/dpdev69/claude-tekken-hud"
+      "homepage": "https://github.com/dpdev69/claude-fight-hud"
     }
   ]
 }

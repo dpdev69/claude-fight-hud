@@ -1,7 +1,7 @@
 #!/bin/sh
-# Tekken HUD prerequisites, in one go:
+# Fight HUD prerequisites, in one go:
 #
-#   curl -fsSL https://raw.githubusercontent.com/dpdev69/claude-tekken-hud/main/setup.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/dpdev69/claude-fight-hud/main/setup.sh | sh
 #   sh setup.sh --check     # report only, install nothing
 #
 # git   DEBT count (required; usually already there)
@@ -22,7 +22,7 @@ no() { printf '  \033[31m✘\033[0m %s\n' "$1"; MISSING=1; }
 warn() { printf '  \033[33m!\033[0m %s\n' "$1"; }
 say() { printf '\n\033[1m%s\033[0m\n' "$1"; }
 
-say "TEKKEN HUD · checking your corner"
+say "FIGHT HUD · checking your corner"
 
 if command -v git >/dev/null 2>&1; then
   ok "git $(git --version | awk '{print $3}')"
@@ -59,6 +59,6 @@ fi
 [ $MISSING = 1 ] && { say "Fix the ✘ items above"; exit 1; }
 
 say "Ready. In Claude Code:"
-echo "  /plugin marketplace add dpdev69/claude-tekken-hud"
-echo "  /plugin install tekken-hud@claude-tekken-hud"
+echo "  /plugin marketplace add dpdev69/claude-fight-hud"
+echo "  /plugin install fight-hud@claude-fight-hud"
 echo

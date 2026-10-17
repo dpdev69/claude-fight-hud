@@ -6,7 +6,7 @@ export type WfAgents = Record<string, { runId: string; label: string; model: str
 
 declare module 'claude-code' {
   interface PluginState {
-    'tekken-hud': {
+    'fight-hud': {
       models: AgentModels
       tick: number
       debt: string

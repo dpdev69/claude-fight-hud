@@ -72,7 +72,7 @@ const XML_BAD = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\ufffe\uffff]/g
 // Escapes markup for text content.
 const esc = (s: string) => s.replace(XML_BAD, '').replace(/[<>&"]/g, c => `&#${c.charCodeAt(0)};`)
 
-// A slanted Tekken frame at the origin: dark track, `inner` clipped to it under a gloss, light outline.
+// A slanted fight-game frame at the origin: dark track, `inner` clipped to it under a gloss, light outline.
 function frame(id: string, inner: string, w: number, h: number, slant: number) {
   const shape = `${slant},0 ${w},0 ${w - slant},${h} 0,${h}`
 
