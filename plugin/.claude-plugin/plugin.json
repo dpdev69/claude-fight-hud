@@ -2,7 +2,11 @@
   "name": "fight-hud",
   "version": "2.0.0",
   "description": "Fighting-game HUD above the Claude Code prompt: context, 5-hour limit, 7-day stamina, daily spend, ponytail debt and running agents",
-  "author": { "name": "Basalt", "url": "https://hellobasalt.dev" },
+  "author": {
+    "name": "Basalt",
+    "url": "https://hellobasalt.dev",
+    "email": "support@hellobasalt.dev"
+  },
   "homepage": "https://github.com/dpdev69/claude-fight-hud",
   "repository": "https://github.com/dpdev69/claude-fight-hud",
   "license": "MIT",

@@ -2,7 +2,10 @@
   "$schema": "https://code.claude.com/schemas/marketplace.json",
   "name": "claude-fight-hud",
   "description": "Fighting-game HUD for Claude Code",
-  "owner": { "name": "Basalt" },
+  "owner": {
+    "name": "Basalt",
+    "email": "support@hellobasalt.dev"
+  },
   "plugins": [
     {
       "name": "fight-hud",

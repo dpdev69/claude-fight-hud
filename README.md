@@ -99,4 +99,8 @@ npm run video
 ffmpeg -ss 24.5 -t 4 -i media/launch.mp4 -vf "crop=1920:800:0:240,fps=15,scale=1100:-1:flags=lanczos,split[a][b];[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4" -loop 0 media/ko.gif
 ```
 
+## Help
+
+Found a bug or have a question? [Open an issue](https://github.com/dpdev69/claude-fight-hud/issues) or write to [support@hellobasalt.dev](mailto:support@hellobasalt.dev).
+
 MIT. Made by [Basalt](https://hellobasalt.dev) · [X](https://x.com/hellobasalt) · [YouTube](https://www.youtube.com/@hellobasalt)
